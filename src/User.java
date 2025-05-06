@@ -6,56 +6,62 @@ import java.util.List;
 import java.util.HashSet;
 import java.util.HashMap;
 /**
- * Representa um usu�rio do sistema.
- * Cada usu�rio possui login, senha, nome e pode interagir com outros usu�rios atrav�s de amizades e mensagens.
+ * Representa um usuário do sistema.
+ * Cada usuário possui login, senha, nome e pode interagir com outros usuários através de amizades e mensagens.
  */
 
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** Login do usu�rio. */
+    /** Login do usuário. */
     private String login;
 
-    /** Nome do usu�rio. */
+    /** Nome do usuário. */
     private String nome;
 
-    /** Senha do usu�rio. */
+    /** Senha do usuário. */
     private String senha;
 
-    /** Identifica��o da sess�o do usu�rio. */
+    /** Identificação da sessão do usuário. */
     private String idSessao;
 
-    /** Atributos extras do usu�rio, armazenados em um mapa. */
+    /** Atributos extras do usuário, armazenados em um mapa. */
     private Map<String, Atributo> atributosExtras;
 
-    /** Lista de amigos do usu�rio. */
+    /** Lista de amigos do usuário. */
     private ArrayList<String> amigos = new ArrayList<>();
 
-    /** Solicita��es de amizade recebidas pelo usu�rio. */
+    /** Solicitações de amizade recebidas pelo usuário. */
     private Set<String> solicitacoesAmizade = new HashSet<>();
 
-    /** Lista de mensagens recebidas pelo usu�rio. */
+    /** Lista de mensagens recebidas pelo usuário. */
     private ArrayList<Recado> recados= new ArrayList<>();
 
+    /**  Lista com os nomes das comunidades que o usuário participa. */
     private List<String> comunidades=new ArrayList<>();
 
+    /** Lista com as mensagens recebidas pelo usuário em comunidades. */
     private ArrayList<String> mensagensComunidades= new ArrayList<>();
 
+    /** Lista com os logins dos usuários que são fãs deste usuário. */
     private ArrayList<String> fas= new ArrayList<>();
 
+    /** Lista com os logins dos usuários que este usuário considera ídolos. */
     private ArrayList<String> idolos= new ArrayList<>();
 
+    /** Lista com os logins dos usuários que o usuário adicionou como paqueras. */
     private ArrayList<String> paqueras= new ArrayList<>();
 
+    /** Lista com os logins dos usuários que este usuário marcou como inimigos. */
     private ArrayList<String> inimigos= new ArrayList<>();
 
 
     /**
      * Construtor da classe User.
-     * @param login Nome do login do usu�rio.
-     * @param senha Senha do usu�rio.
-     * @param nome Nome do usu�rio.
+     * @param login Nome do login do usuário.
+     * @param senha Senha do usuário.
+     * @param nome Nome do usuário.
      */
 
     public User(String login, String senha, String nome) {
@@ -76,71 +82,71 @@ public class User implements Serializable {
     }
 
     /**
-     * Pega o nome de login do usu�rio.
-     * @return Nome login do usu�rio.
+     * Pega o nome de login do usuário.
+     * @return Nome login do usuário.
      */
     public String getLogin() {
         return login;
     }
 
     /**
-     * Define o nome login do usu�rio.
-     * @param login Novo nome de login do usu�rio.
+     * Define o nome login do usuário.
+     * @param login Novo nome de login do usuário.
      */
     public void setLogin(String login) {
         this.login = login;
     }
 
     /**
-     * Pega o nome do usu�rio.
-     * @return Nome do usu�rio.
+     * Pega o nome do usuário.
+     * @return Nome do usuário.
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * Define o nome do usu�rio.
-     * @param nome Novo nome do usu�rio.
+     * Define o nome do usuário.
+     * @param nome Novo nome do usuário.
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * Pega a senha do usu�rio.
-     * @return A senha do usu�rio.
+     * Pega a senha do usuário.
+     * @return A senha do usuário.
      */
     public String getSenha() {
         return senha;
     }
 
     /**
-     * Define a senha do usu�rio.
-     * @param senha Nova senha do usu�rio.
+     * Define a senha do usuário.
+     * @param senha Nova senha do usuário.
      */
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
     /**
-     * Pega o ID da sess�o do usu�rio.
-     * @return O ID da sess�o.
+     * Pega o ID da sessão do usuário.
+     * @return O ID da sessão.
      */
     public String getIdSessao() {
         return idSessao;
     }
 
     /**
-     * Define o ID da sess�o do usu�rio.
-     * @param idSessao Novo ID da sess�o.
+     * Define o ID da sessão do usuário.
+     * @param idSessao Novo ID da sessão.
      */
     public void setIdSessao(String idSessao) {
         this.idSessao = idSessao;
     }
 
     /**
-     * Adiciona um atributo extra ao usu�rio.
+     * Adiciona um atributo extra ao usuário.
      * @param chave Nome do atributo.
      * @param valor Valor do atributo.
      */
@@ -151,7 +157,7 @@ public class User implements Serializable {
 
 
     /**
-     * Obt�m um atributo extra do usu�rio.
+     * Obtém um atributo extra do usuário.
      * @param chave Nome do atributo.
      * @return O atributo correspondente.
      */
@@ -163,7 +169,7 @@ public class User implements Serializable {
     }
 
     /**
-     * Pega a lista de amigos do usu�rio.
+     * Pega a lista de amigos do usuário.
      * @return Lista de amigos.
      */
     public ArrayList<String> getAmigos() {
@@ -172,8 +178,8 @@ public class User implements Serializable {
     }
 
     /**
-     * Obt�m a lista de solicita��es de amizade recebidas pelo usu�rio.
-     * @return Lista de solicita��es de amizade.
+     * Obtém a lista de solicitações de amizade recebidas pelo usuário.
+     * @return Lista de solicitações de amizade.
      */
     public Set<String> getSolicitacoesAmizade() {
 
@@ -181,39 +187,65 @@ public class User implements Serializable {
     }
 
     /**
-     * Obt�m a lista de mensagens recebidas pelo usu�rio.
+     * Obtém a lista de mensagens recebidas pelo usuário.
      * @return Lista de mensagens.
      */
     public ArrayList<Recado> getRecados(){
         return recados;
     }
 
+    /**
+     * Obtém a lista de comunidades às quais o usuário pertence.
+     * @return uma lista com os nomes das comunidades.
+     */
     public  List<String> getComunidades(){
         return comunidades;
     }
 
+    /**
+     * Adiciona uma nova comunidade à lista de comunidades do usuário.
+     * @param nome Nome da comunidade a ser adicionada.
+     */
     public void adicionarComunidade(String nome){
         comunidades.add(nome);
     }
 
+    /**
+     * Retorna a lista de mensagens recebidas pelo os usuários das comunidades.
+     * @return uma lista de mensagens de comunidades.
+     */
     public ArrayList<String> getMensagensComunidades(){
         return mensagensComunidades;
     }
 
+   /**
+    * Retorna a lista de usuários  ídolos do usuário atual.
+    * @return uma lista como os nomes dos ídolos.
+    */
     public ArrayList<String> getIdolos() {
-
         return idolos;
     }
 
+    /**
+     * Retorna a lista de usuários que são fãs do usuário atual.
+     * @return uma lista de nomes dos fãs.
+     */
     public ArrayList<String> getFas() {
-
         return fas;
     }
 
+    /**
+     * Retorna a lista de usuários que o usuário atual considera como paqueras.
+     * @return uma lista de nomes dos paqueras.
+     */
     public ArrayList<String> getPaqueras(){
         return paqueras;
     }
 
+    /**
+     * Retorna a lista de usuários considerados inimigos pelo usuário atual.
+     * @return uma lista com os nomes dos inimigos.
+     */
     public ArrayList<String> getInimigos(){
         return inimigos;
     }

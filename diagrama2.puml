@@ -1,0 +1,166 @@
+@startuml
+class Main {
++ {static} void main(String[])
+}
+
+class InvalidCommunityException {
+}
+class Comunidade {
+- {static} long serialVersionUID
+- String nomeComunidade
+- String loginCriador
+- String descricao
+- ArrayList<String> membros
++ String getNomeComunidade()
++ String getLoginCriador()
++ ArrayList<String> getMembros()
++ String getDescricao()
+}
+
+
+class Facade {
+- Repositorio repositorio
++ void criarUsuario(String,String,String)
++ String abrirSessao(String,String)
++ String getAtributoUsuario(String,String)
++ void zerarSistema()
++ void encerrarSistema()
++ void quit()
++ void editarPerfil(String,String,String)
++ void adicionarAmigo(String,String)
++ boolean ehAmigo(String,String)
++ String getAmigos(String)
++ void enviarRecado(String,String,String)
++ String lerRecado(String)
++ void criarComunidade(String,String,String)
++ String getDescricaoComunidade(String)
++ String getDonoComunidade(String)
++ String getMembrosComunidade(String)
++ void adicionarComunidade(String,String)
++ String getComunidades(String)
++ void enviarMensagem(String,String,String)
++ String lerMensagem(String)
++ void adicionarIdolo(String,String)
++ String getFas(String)
++ boolean ehFa(String,String)
++ void adicionarPaquera(String,String)
++ boolean ehPaquera(String,String)
++ String getPaqueras(String)
++ void adicionarInimigo(String,String)
++ void removerUsuario(String)
+}
+
+
+class User {
+- {static} long serialVersionUID
+- String login
+- String nome
+- String senha
+- String idSessao
+- Map<String,Atributo> atributosExtras
+- ArrayList<String> amigos
+- Set<String> solicitacoesAmizade
+- ArrayList<Recado> recados
+- List<String> comunidades
+- ArrayList<String> mensagensComunidades
+- ArrayList<String> fas
+- ArrayList<String> idolos
+- ArrayList<String> paqueras
+- ArrayList<String> inimigos
++ String getLogin()
++ void setLogin(String)
++ String getNome()
++ void setNome(String)
++ String getSenha()
++ void setSenha(String)
++ String getIdSessao()
++ void setIdSessao(String)
++ void addAtributoExtra(String,String)
++ Atributo getAtributoExtra(String)
++ ArrayList<String> getAmigos()
++ Set<String> getSolicitacoesAmizade()
++ ArrayList<Recado> getRecados()
++ List<String> getComunidades()
++ void adicionarComunidade(String)
++ ArrayList<String> getMensagensComunidades()
++ ArrayList<String> getIdolos()
++ ArrayList<String> getFas()
++ ArrayList<String> getPaqueras()
++ ArrayList<String> getInimigos()
+}
+
+
+class Repositorio {
+- Map<String,User> users
+- Map<String,Comunidade> comunidades
++ void carregarDados()
++ void carregarDadosComunidades()
++ void zerarSistema()
++ void encerrarSistema()
++ void quit()
+- User getUserById(String)
++ void CriarUsuario(String,String,String)
++ String getAtributoUsuario(String,String)
++ String abrirSessao(String,String)
++ void editarPerfil(String,String,String)
++ void adicionarAmigo(String,String)
++ boolean ehAmigo(String,String)
++ String getAmigos(String)
++ void enviarRecado(String,String,String)
++ String lerRecado(String)
++ void criarComunidade(String,String,String)
++ String getDescricaoComunidade(String)
++ String getDonoComunidade(String)
++ String getMembrosComunidade(String)
++ void adicionarComunidade(String,String)
++ String getComunidades(String)
++ void enviarMensagem(String,String,String)
++ String lerMensagem(String)
++ void adicionarIdolo(String,String)
++ String getFas(String)
++ boolean ehFa(String,String)
++ void adicionarPaquera(String,String)
++ boolean ehPaquera(String,String)
++ String getPaqueras(String)
++ void adicionarInimigo(String,String)
++ void removerUsuario(String)
+}
+
+
+class InvalidUserException {
+}
+class Recado {
+- {static} long serialVersionUID
+- String mensagem
+- String loginRemetente
++ String getMensagem()
++ String getLoginRemetente()
+}
+
+
+class InvalidAtributeException {
+}
+class Atributo {
+- {static} long serialVersionUID
+- String nome
+- String valor
++ String getNome()
++ void setNome(String)
++ String getValor()
++ void setValor(String)
+}
+
+
+class InvalidRecadoException {
+}
+
+
+RuntimeException <|-- InvalidCommunityException
+java.io.Serializable <|.. Comunidade
+java.io.Serializable <|.. User
+RuntimeException <|-- InvalidUserException
+java.io.Serializable <|.. Recado
+RuntimeException <|-- InvalidAtributeException
+java.io.Serializable <|.. Atributo
+RuntimeException <|-- InvalidRecadoException
+@enduml

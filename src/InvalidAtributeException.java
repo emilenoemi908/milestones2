@@ -1,10 +1,10 @@
 /**
- * ExceÁ„o lanÁada quando um atributo inv·lido È acessado ou modificado no sistema.
+ * Exce√ß√£o lan√ßada quando um atributo inv√°lido √© acessado ou modificado no sistema.
  */
 public class InvalidAtributeException extends RuntimeException {
 
     /**
-     * ConstrÛi uma nova InvalidAtributeException com a mensagem especificada.
+     * Constr√≥i uma nova InvalidAtributeException com a mensagem especificada.
      * @param mensagem A mensagem detalhando a causa do erro.
      */
     public InvalidAtributeException(String mensagem) {
